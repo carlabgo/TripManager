@@ -1,0 +1,12 @@
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Cross\bin\Debug\net6.0\TripManager.Cross.deps.json
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Cross\bin\Debug\net6.0\TripManager.Cross.dll
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Cross\bin\Debug\net6.0\TripManager.Cross.pdb
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Cross\obj\Debug\net6.0\TripManager.Cross.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Cross\obj\Debug\net6.0\TripManager.Cross.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Cross\obj\Debug\net6.0\TripManager.Cross.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Cross\obj\Debug\net6.0\TripManager.Cross.AssemblyInfo.cs
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Cross\obj\Debug\net6.0\TripManager.Cross.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Cross\obj\Debug\net6.0\TripManager.Cross.dll
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Cross\obj\Debug\net6.0\refint\TripManager.Cross.dll
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Cross\obj\Debug\net6.0\TripManager.Cross.pdb
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Cross\obj\Debug\net6.0\ref\TripManager.Cross.dll

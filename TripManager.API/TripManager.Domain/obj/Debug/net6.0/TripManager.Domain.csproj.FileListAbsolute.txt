@@ -1,0 +1,14 @@
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\bin\Debug\net6.0\TripManager.Domain.deps.json
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\bin\Debug\net6.0\TripManager.Domain.runtimeconfig.json
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\bin\Debug\net6.0\TripManager.Domain.dll
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\bin\Debug\net6.0\TripManager.Domain.pdb
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\obj\Debug\net6.0\TripManager.Domain.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\obj\Debug\net6.0\TripManager.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\obj\Debug\net6.0\TripManager.Domain.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\obj\Debug\net6.0\TripManager.Domain.AssemblyInfo.cs
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\obj\Debug\net6.0\TripManager.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\obj\Debug\net6.0\TripManager.Domain.dll
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\obj\Debug\net6.0\refint\TripManager.Domain.dll
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\obj\Debug\net6.0\TripManager.Domain.pdb
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\obj\Debug\net6.0\TripManager.Domain.genruntimeconfig.cache
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\obj\Debug\net6.0\ref\TripManager.Domain.dll
