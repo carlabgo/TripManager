@@ -18,7 +18,9 @@ namespace TripManager.Domain.Models
         [Column("Brand")]
         public string Brand { get; set; }
         [Required]
-        [Column("Type")]
-        public string Type { get; set; }
+        [Column("TypeId")]
+        public long TypeId { get; set; }
+        [ForeignKey(nameof(TypeId))]
+        public VehicleType Type { get; set; }
     }
 }

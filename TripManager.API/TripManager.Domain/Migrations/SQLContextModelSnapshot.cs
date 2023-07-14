@@ -26,9 +26,14 @@ namespace TripManager.Domain.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("bigint")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit")
+                        .HasColumnName("Active");
 
                     b.Property<string>("Country")
                         .IsRequired()
@@ -49,9 +54,14 @@ namespace TripManager.Domain.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("bigint")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit")
+                        .HasColumnName("Active");
 
                     b.Property<long>("CityId")
                         .HasColumnType("bigint")
@@ -92,9 +102,14 @@ namespace TripManager.Domain.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("bigint")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit")
+                        .HasColumnName("Active");
 
                     b.Property<string>("Brand")
                         .IsRequired()
@@ -106,14 +121,70 @@ namespace TripManager.Domain.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("LicensePlate");
 
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Type");
+                    b.Property<long>("TypeId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("TypeId");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("TypeId");
+
                     b.ToTable("Vehicle");
+                });
+
+            modelBuilder.Entity("TripManager.Domain.Models.VehicleType", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit")
+                        .HasColumnName("Active");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VehicleType");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Active = false,
+                            Name = "Auto"
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            Active = false,
+                            Name = "Camion"
+                        },
+                        new
+                        {
+                            Id = 5L,
+                            Active = false,
+                            Name = "Camioneta"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            Active = false,
+                            Name = "Moto"
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            Active = false,
+                            Name = "Motorhome"
+                        });
                 });
 
             modelBuilder.Entity("TripManager.Domain.Models.Trip", b =>
@@ -133,6 +204,17 @@ namespace TripManager.Domain.Migrations
                     b.Navigation("City");
 
                     b.Navigation("Vehicle");
+                });
+
+            modelBuilder.Entity("TripManager.Domain.Models.Vehicle", b =>
+                {
+                    b.HasOne("TripManager.Domain.Models.VehicleType", "Type")
+                        .WithMany()
+                        .HasForeignKey("TypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Type");
                 });
 #pragma warning restore 612, 618
         }

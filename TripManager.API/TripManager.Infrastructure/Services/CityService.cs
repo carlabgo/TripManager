@@ -1,10 +1,5 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TripManager.Domain;
 using TripManager.Domain.Models;
 using TripManager.Infrastructure.Dtos;
@@ -40,6 +35,7 @@ namespace TripManager.Infrastructure.Services
 
             return new OperationResponse<DtoGetCity>(dto);
         }
+        
         public async Task<OperationResponse<long>> CreateOrUpdateCity(DtoAddCity request)
         {   
             if (request.Id == 0)
@@ -84,6 +80,36 @@ namespace TripManager.Infrastructure.Services
                 return new OperationResponse<long>(city.Id);
             }
             
+        }
+
+        public async Task<OperationResponse<DtoResponseData<List<DtoGetCity>>>> ListAll()
+        {
+            var list = (await _contextSql
+                .Cities
+                .AsNoTracking()
+                .ToListAsync()
+                .ConfigureAwait(false))
+                .Select(c => new DtoGetCity()
+                {
+                    Country = c.Country,
+                    Name = c.Name,
+                    Id = c.Id
+                }).ToList();
+
+            return new OperationResponse<DtoResponseData<List<DtoGetCity>>>(new DtoResponseData<List<DtoGetCity>>() { Data = list });
+        }
+        public async Task<OperationResponse<bool>> Delete(long id)
+        {
+            var city = await _contextSql.Cities.FirstOrDefaultAsync(x => x.Id == id && x.Active == true);
+
+            if (city == null)
+            {
+                return new OperationResponse<bool>(false, false, "No se encuentra la ciudad que intentas eliminar.");
+            }
+
+            city.Active = false;
+
+            return new OperationResponse<bool>(true);
         }
     }
 }

@@ -12,3 +12,8 @@ C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Infrastruc
 C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\TripManager.Infrastructure.pdb
 C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\TripManager.Infrastructure.genruntimeconfig.cache
 C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\ref\TripManager.Infrastructure.dll
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Infrastructure\bin\Debug\net6.0\TripManager.Domain.dll
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Infrastructure\bin\Debug\net6.0\TripManager.Domain.pdb
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\TripManager.Infrastructure.csproj.CopyComplete
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Infrastructure\bin\Debug\net6.0\TripManager.Cross.dll
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Infrastructure\bin\Debug\net6.0\TripManager.Cross.pdb

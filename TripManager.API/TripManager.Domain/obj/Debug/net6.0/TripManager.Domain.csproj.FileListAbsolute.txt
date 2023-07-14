@@ -12,3 +12,6 @@ C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\obj
 C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\obj\Debug\net6.0\TripManager.Domain.pdb
 C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\obj\Debug\net6.0\TripManager.Domain.genruntimeconfig.cache
 C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\obj\Debug\net6.0\ref\TripManager.Domain.dll
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\bin\Debug\net6.0\TripManager.Cross.dll
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\bin\Debug\net6.0\TripManager.Cross.pdb
+C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Domain\obj\Debug\net6.0\TripManager.Domain.csproj.CopyComplete
