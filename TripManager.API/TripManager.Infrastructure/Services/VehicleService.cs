@@ -5,6 +5,7 @@ using TripManager.Infrastructure.Dtos;
 using TripManager.Infrastructure.OperationResponse;
 using Microsoft.EntityFrameworkCore;
 using TripManager.Infrastructure.Dtos.Vehicle;
+using TripManager.Infrastructure.Dtos.Trip;
 
 namespace TripManager.Infrastructure.Services
 {
@@ -121,6 +122,40 @@ namespace TripManager.Infrastructure.Services
             vehicle.Active = false;
 
             return new OperationResponse<bool>(true);
+        }
+        public async Task<OperationResponse<DtoResponsePagination<DtoGetVehicle>>> ListVehicles(DtoFilterVehicle filter)
+        {
+            var query = _contextSql
+                .Vehicles
+                .Include(x => x.Type)
+                .AsNoTracking()
+                .Where(p =>
+                (p.LicensePlate.ToLower().Contains(filter.LicensePlate ?? "")) &&
+                (p.Brand.ToLower().Contains(filter.Brand ?? "")) &&
+             ((filter.TypeId == null || filter.TypeId == 0) ? true : p.TypeId == filter.TypeId));
+
+            var count = await query.CountAsync().ConfigureAwait(false);
+
+            var list = (await query.OrderBy(p => p.LicensePlate)
+                .Skip(filter.Page * filter.PageSize)
+                .Take(filter.PageSize)
+                .AsNoTracking()
+                .ToListAsync()
+                .ConfigureAwait(false))
+                .Select(d => new DtoGetVehicle()
+                {
+                   LicensePlate= d.LicensePlate,
+                   Brand= d.Brand,
+                   Type = d.Type.Name,
+                   Id = d.Id,
+                });
+
+            return new OperationResponse<DtoResponsePagination<DtoGetVehicle>>(new DtoResponsePagination<DtoGetVehicle>()
+            {
+                Data = list,
+                TotalCount = count,
+                PageSize = filter.PageSize,
+            });
         }
     }
 }

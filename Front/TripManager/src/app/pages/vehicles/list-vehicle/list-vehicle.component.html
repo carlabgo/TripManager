@@ -1,0 +1,30 @@
+
+<nz-page-header class="site-page-header">
+  <nz-page-header-title>
+    Vehiculos
+  </nz-page-header-title>
+  <nz-page-header-extra>
+    <a (click)="addNewVehicle()"> <button nz-tooltip nzTooltipTitle="Nuevo"
+        nz-button nzType="primary" nzShape="circle"><i nz-icon nzType="plus"
+          nzTheme="outline"></i></button></a>
+  </nz-page-header-extra>
+  <nz-page-header-content>
+    <nz-table #basicTable [nzData]="data">
+      <thead>
+        <tr>
+          <th>Marca</th>
+          <th>Patente</th>
+          <th>Tipo de vehiculo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.brand }}</td>
+          <td>{{ data.licensePlate }}</td>
+          <td>{{ data.type }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-page-header-content>
+</nz-page-header>
+

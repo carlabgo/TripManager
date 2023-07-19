@@ -1,0 +1,45 @@
+<form 
+nz-form
+[formGroup]="form"
+nzLayout="vertical"
+nzNoColon
+>
+<nz-form-item>
+  <nz-form-label nzFor="brand">Marca</nz-form-label>
+  <nz-form-control>
+  <input formControlName="brand" nz-input>
+</nz-form-control>
+<span *ngIf="errorBrand == true">Debe ingresar una marca</span>
+</nz-form-item>
+<nz-form-item >
+  <nz-form-label nzFor="vehicleId">Tipo de vehiculo</nz-form-label>
+  <nz-form-control>
+  <nz-select formControlName="typeId"  nzPlaceHolder="Seleccione un vehiculo">
+  <nz-option *ngFor="let i of vehicleTypes" [nzLabel]="i.name"
+    [nzValue]="i.id"></nz-option>
+  </nz-select>
+  </nz-form-control>
+  <span *ngIf="errorType == true">Debe ingresar una marca</span>
+</nz-form-item>
+<nz-form-item>
+  <nz-form-label nzFor="licensePlate">Patente</nz-form-label>
+  <nz-form-control>
+  <input formControlName="licensePlate" nz-input>
+</nz-form-control>
+<span *ngIf="errorLicense == true">Debe ingresar una patente</span>
+</nz-form-item>
+</form>
+<div style="margin-top: 20px;">
+  <button nz-button nzType="default" (click)="close()">
+    Cancelar
+  </button>
+  <button
+  nz-button
+  nzType="primary"
+  style="margin-left: 5px"
+  [nzLoading]="isLoading"
+  (click)="saveTrip()"
+  >
+  Guardar
+  </button>
+</div>

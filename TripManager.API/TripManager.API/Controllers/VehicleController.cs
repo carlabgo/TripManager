@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TripManager.Infrastructure.Dtos;
+using TripManager.Infrastructure.Dtos.Trip;
 using TripManager.Infrastructure.Dtos.Vehicle;
 using TripManager.Infrastructure.Services;
 
@@ -36,10 +37,17 @@ namespace TripManager.API.Controllers
         }
 
         [HttpGet]
-        [Route("list")]
+        [Route("listAll")]
         public async Task<IActionResult> ListAll()
         {
             return Return(await _service.ListAll().ConfigureAwait(false));
+        }
+
+        [HttpPost]
+        [Route("list")]
+        public async Task<IActionResult> List([FromBody] DtoFilterVehicle vehicle)
+        {
+            return Return(await _service.ListVehicles(vehicle).ConfigureAwait(false));
         }
     }
 }

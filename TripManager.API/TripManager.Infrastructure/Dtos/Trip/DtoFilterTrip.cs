@@ -9,13 +9,12 @@ namespace TripManager.Infrastructure.Dtos.Trip
 {
     public class DtoFilterTrip
     {
-        public string Name { get; set; }
+        public long? CityId { get; set; }
 
-        public long CityId { get; set; }
+        public long? VehicleId { get; set; }
 
-        public long VehicleId { get; set; }
+        public DateTime? TripDate { get; set; }
 
-        public DateTime TripDate { get; set; }
         [Required]
         public int Page { get; set; }
 

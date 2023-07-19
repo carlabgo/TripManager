@@ -186,9 +186,10 @@ namespace TripManager.Infrastructure.Services
             var query = _contextSql
                 .Trips
                 .Include(x => x.Vehicle)
+                .Include(x => x.Vehicle.Type)
                 .Include(x => x.City)
                 .AsNoTracking()
-                .Where(p => p.Name.ToLower().Contains(filter.Name ?? "") &&
+                .Where(p => 
                 ((filter.VehicleId == null || filter.VehicleId == 0) ? true : p.VehicleId == filter.VehicleId) &&
                 ((filter.CityId == null || filter.CityId == 0) ? true : p.CityId == filter.CityId) &&
                 ((filter.TripDate == null) ? true : p.TripDate == filter.TripDate));
@@ -209,7 +210,7 @@ namespace TripManager.Infrastructure.Services
                     Description= d.Description,
                     City = d.City.Name,
                     Vehicle = d.Vehicle.Type.Name
-                });;
+                });
 
             return new OperationResponse<DtoResponsePagination<DtoListTrip>>(new DtoResponsePagination<DtoListTrip>()
             {
