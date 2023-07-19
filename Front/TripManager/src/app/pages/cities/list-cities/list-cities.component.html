@@ -1,0 +1,40 @@
+
+<nz-page-header class="site-page-header">
+  <nz-page-header-title>
+    Ciudades
+  </nz-page-header-title>
+  <nz-page-header-extra>
+    <a (click)="addNewCity()"> <button nz-tooltip nzTooltipTitle="Nuevo"
+        nz-button nzType="primary" nzShape="circle"><i nz-icon nzType="plus"
+          nzTheme="outline"></i></button></a>
+  </nz-page-header-extra>
+  <nz-page-header-content>
+    <nz-table #basicTable [nzData]="data">
+      <thead>
+        <tr>
+          <th>Ciudad</th>
+          <th>País</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.name }}</td>
+          <td>{{ data.country }}</td>
+          <td> <a (click)="addNewCity(data.id)">
+            <span nz-icon nzType="edit" nzTheme="outline"></span
+          ></a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a (click)="showDeleteConfirmation(data)" class="delete">
+            <span
+              nz-icon
+              nzType="delete"
+              nzTheme="outline"
+              nzTooltipTitle="Eliminar"
+            ></span>
+          </a></td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-page-header-content>
+</nz-page-header>

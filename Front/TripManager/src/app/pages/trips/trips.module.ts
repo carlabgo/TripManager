@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { AddTripComponent } from "./add-trip/add-trip.component";
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzModalModule } from "ng-zorro-antd/modal";
+import { NzMessageModule } from "ng-zorro-antd/message";
 
 @NgModule({
     imports: [
@@ -29,7 +31,9 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
         FormsModule,
         ReactiveFormsModule,
         NzFormModule,
-        NzDatePickerModule
+        NzDatePickerModule,
+        NzModalModule,
+        NzMessageModule
     ],
     declarations: [
         ListComponent,

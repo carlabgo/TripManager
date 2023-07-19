@@ -79,7 +79,7 @@ namespace TripManager.Infrastructure.Services
                     return new OperationResponse<long>(0, false, "No se encuentra el vehiculo que buscas.");
                 }
 
-                vehicle.LicensePlate = vehicle.LicensePlate;
+                vehicle.LicensePlate = request.LicensePlate;
                 vehicle.Brand = request.Brand;
                 vehicle.TypeId = request.TypeId;
 
@@ -120,7 +120,7 @@ namespace TripManager.Infrastructure.Services
             }
 
             vehicle.Active = false;
-
+            await _contextSql.SaveChangesAsync();
             return new OperationResponse<bool>(true);
         }
         public async Task<OperationResponse<DtoResponsePagination<DtoGetVehicle>>> ListVehicles(DtoFilterVehicle filter)
@@ -132,7 +132,7 @@ namespace TripManager.Infrastructure.Services
                 .Where(p =>
                 (p.LicensePlate.ToLower().Contains(filter.LicensePlate ?? "")) &&
                 (p.Brand.ToLower().Contains(filter.Brand ?? "")) &&
-             ((filter.TypeId == null || filter.TypeId == 0) ? true : p.TypeId == filter.TypeId));
+             ((filter.TypeId == null || filter.TypeId == 0) ? true : p.TypeId == filter.TypeId) && p.Active == true);
 
             var count = await query.CountAsync().ConfigureAwait(false);
 

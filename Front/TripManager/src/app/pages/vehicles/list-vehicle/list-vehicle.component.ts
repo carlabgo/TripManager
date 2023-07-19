@@ -4,13 +4,15 @@ import { VehiclesService } from '../vehicles.service';
 import { NzDrawerService } from 'ng-zorro-antd/drawer';
 import { environment } from 'src/environments/environment';
 import { AddVehicleComponent } from '../add-vehicle/add-vehicle.component';
+import { BaseComponent } from 'src/app/common/base/base.component';
+import { NzModalService } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list-vehicle.component.html',
   styleUrls: ['./list-vehicle.component.css']
 })
-export class ListComponent implements OnInit {
+export class ListComponent extends BaseComponent implements OnInit {
   params: VehicleParams = {
     brand:'',
     typeId:0,
@@ -20,10 +22,12 @@ export class ListComponent implements OnInit {
   }
   data: VehicleResponse[]=[]
   totalCount:number = 0;
+  isTableLoading:false;
   constructor(
     private service: VehiclesService,
-    private drawerService: NzDrawerService
-  ) { }
+    private drawerService: NzDrawerService,
+    private modalService: NzModalService,
+  ) { super() }
 
   ngOnInit() {
     this.getVehiclesList();
@@ -35,18 +39,42 @@ export class ListComponent implements OnInit {
     })
   }
 
-  addNewVehicle(idVehicle?:number){
+  addNewVehicle(id?:number){
     const drawerRef =
-    this.drawerService.create<AddVehicleComponent, {idVehicle:number}>({
+    this.drawerService.create<AddVehicleComponent, {id:number}>({
       nzTitle: "Cargar nuevo vehiculo",
       nzClosable: true,
       nzContent: AddVehicleComponent,
       nzPlacement:'right',
-      nzContentParams:{idVehicle: idVehicle},
+      nzContentParams:{id: id},
       nzWidth: '800px',
     })
     drawerRef.afterClose.subscribe((r) => {
         this.getVehiclesList();
       })
+  }
+  showDeleteConfirmation(data: any) {
+    this.modalService.confirm({
+      nzTitle: '¿Eliminar vehiculo?',
+      nzContent: `Si confirmas esta acción, se eliminará el vehiculo de forma permanente.`,
+      nzOkText: 'Eliminar',
+      nzOkDanger: true,
+      nzOnOk: () => {
+        this.deleteVehicle(data.id);
+      },
+      nzCancelText: 'Cancelar',
+      nzClosable: false,
+      nzCentered: true,
+    });
+  }
+  deleteVehicle(id: number): void {
+    this.service.deleteVehicle(id)
+      .subscribe({
+        next: () => {
+          this.showMessageSuccess('El vehiculo fue eliminado correctamente.');
+          this.getVehiclesList();
+        },
+        error: () => (this.isTableLoading = false)
+      });
   }
 }

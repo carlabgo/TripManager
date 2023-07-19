@@ -17,6 +17,7 @@
           <th>Descripcion</th>
           <th>Ciudad</th>
           <th>Vehiculo</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +27,18 @@
           <td>{{ data.description }}</td>
           <td>{{ data.city }}</td>
           <td>{{ data.vehicle }}</td>
+          <td> <a (click)="addNewTrip(data.id)">
+            <span nz-icon nzType="edit" nzTheme="outline"></span
+          ></a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a (click)="showDeleteConfirmation(data)" class="delete">
+            <span
+              nz-icon
+              nzType="delete"
+              nzTheme="outline"
+              nzTooltipTitle="Eliminar"
+            ></span>
+          </a></td>
         </tr>
       </tbody>
     </nz-table>

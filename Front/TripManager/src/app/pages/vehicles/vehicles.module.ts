@@ -14,10 +14,12 @@ import { VehiclesService } from './vehicles.service';
 import { VehiclesRouterModule } from './vehicles-router.module';
 import { ListComponent } from './list-vehicle/list-vehicle.component';
 import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 
 @NgModule({
-  imports: [
+imports: [
     CommonModule,
     VehiclesRouterModule,
     NzDividerModule,
@@ -30,7 +32,9 @@ import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
     FormsModule,
     ReactiveFormsModule,
     NzFormModule,
-    NzDatePickerModule
+    NzDatePickerModule,
+    NzModalModule,
+    NzMessageModule
 ],
 declarations: [
     ListComponent,

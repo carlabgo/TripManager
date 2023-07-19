@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VehiclesService } from '../vehicles.service';
 import { NzDrawerRef } from 'ng-zorro-antd/drawer';
@@ -17,6 +17,7 @@ export class AddVehicleComponent implements OnInit {
   errorType:boolean = false;
   errorLicense:boolean = false;
   isLoading = false;
+  @Input() id:number;
   constructor(
     router:Router,
     private fb: FormBuilder,
@@ -27,12 +28,13 @@ export class AddVehicleComponent implements OnInit {
   ngOnInit() {
     this.getVehicleTypes();
     this.form = this.fb.group({
+      id:[this.id],
       brand:['', [Validators.required]],
       typeId:[0, [Validators.required]],
       licensePlate:[null, [Validators.required]]
   },
     )}
-    saveTrip(){
+    saveVehicle(){
       this.isValidForm();
       if(this.form.valid){
         this.service.createOrUpdateVehicle(this.form.getRawValue())

@@ -21,8 +21,6 @@ namespace TripManager.Infrastructure.Dtos.Trip
         public long VehicleId { get; set; }
 
         public DateTime TripDate { get; set; }
-        public DateTime? NewTripDate { get; set; }
 
-        public bool IsRainy { get; set; }
     }
 }

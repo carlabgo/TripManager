@@ -21,5 +21,7 @@ createOrUpdateVehicle(data:any):Observable<any>{
 getTypes():Observable<any>{
   return this.httpClient.get(`${this.basePath}Type/list`);
 }
-
+deleteVehicle(id:any): Observable<any>{
+  return this.httpClient.delete(`${this.basePath}/${id}`);
+}
 }

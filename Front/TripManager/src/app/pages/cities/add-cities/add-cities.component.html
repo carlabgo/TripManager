@@ -1,0 +1,36 @@
+<form 
+nz-form
+[formGroup]="form"
+nzLayout="vertical"
+nzNoColon
+>
+<nz-form-item>
+  <nz-form-label nzFor="name">Ciudad</nz-form-label>
+  <nz-form-control>
+  <input formControlName="name" nz-input>
+</nz-form-control>
+<span *ngIf="errorName == true">Debe ingresar una ciudad</span>
+</nz-form-item>
+<nz-form-item>
+  <nz-form-label nzFor="country">País</nz-form-label>
+  <nz-form-control>
+  <input formControlName="country" nz-input>
+</nz-form-control>
+<span *ngIf="errorCountry == true">Debe ingresar un país</span>
+</nz-form-item>
+</form>
+<div style="margin-top: 20px;">
+  <button nz-button nzType="default" (click)="close()">
+    Cancelar
+  </button>
+  <button
+  nz-button
+  nzType="primary"
+  style="margin-left: 5px"
+  [nzLoading]="isLoading"
+  (click)="saveCity()"
+  >
+  Guardar
+  </button>
+</div>
+

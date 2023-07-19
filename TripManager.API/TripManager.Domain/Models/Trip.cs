@@ -30,9 +30,7 @@ namespace TripManager.Domain.Models
         [Required]
         [Column("TripDate")]
         public DateTime TripDate { get; set; }
-        [Required]
-        [Column("IsRainy")]
-        public bool IsRainy { get; set; }
+
          
     }
 }

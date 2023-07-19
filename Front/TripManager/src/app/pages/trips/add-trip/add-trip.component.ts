@@ -5,6 +5,8 @@ import { TripsService } from '../trips.service';
 import { NzDrawerRef} from 'ng-zorro-antd/drawer'
 import { CityDTO } from '../list/models/city.model';
 import { VehicleDTO } from '../list/models/vehicle.model';
+import { NzModalService } from 'ng-zorro-antd/modal';
+
 
 @Component({
   selector: 'app-add-trip',
@@ -21,21 +23,23 @@ export class AddTripComponent implements OnInit {
   errorCity:boolean = false;
   errorVehicle:boolean =false;
   errorDate:boolean = false;
+  selectedCityName: string;
 
-  @Input() idTrip:number;
+  @Input() id:number;
 
   constructor(
     router:Router,
     private fb: FormBuilder,
     private service: TripsService,
     private drawerRef: NzDrawerRef<string>,
+    private modalService: NzModalService
   ) { }
 
   ngOnInit() {
     this.getVehicles();
     this.getCities();
     this.form = this.fb.group({
-      idTrip:[this.idTrip],
+      id:[0,this.id],
       name:['', [Validators.required]],
       description:['', [Validators.required]],
       cityId:[null, [Validators.required]],
@@ -58,16 +62,46 @@ export class AddTripComponent implements OnInit {
       this.cities = r.data;
     });
   }
-  saveTrip(){
-    this.isValidForm();
-    if(this.form.valid){
-      this.service.createOrUpdateTrip(this.form.getRawValue())
-      .subscribe((r:any) => {
-        this.close()
-      })
-    }
-    
+  showRainyModal(tripData: any) {
+    this.modalService.confirm({
+      nzTitle: 'Alerta de pronóstico de lluvia',
+      nzContent: 'Se pronostica lluvia para la fecha y ciudad seleccionadas. ¿Deseas reprogramar el viaje?',
+      nzOkText: 'Reprogramar',
+      nzCancelText: 'Dejar fecha actual',
+      nzOnOk: () => {
+        this.form.patchValue({ tripDate: new Date() });
+      },
+      nzOnCancel: () => {
+        this.service.createOrUpdateTrip(tripData).subscribe((response: any) => {
+          this.close();
+        });
+      }
+    });
   }
+  async saveTrip() {
+    this.isValidForm();
+    if (this.form.valid) {
+      const tripData = this.form.getRawValue();
+      const selectedCity = this.cities.find(city => city.id === tripData.cityId);
+      if (selectedCity) {
+        try {
+          const weatherForecast = await this.service.getWeatherForecast(tripData.tripDate, selectedCity.name);
+          if (weatherForecast?.rainy) {
+            this.showRainyModal(tripData);
+          } else {
+            this.service.createOrUpdateTrip(tripData).subscribe((r: any) => {
+              this.close();
+            });
+          }
+        } catch (error) {
+          console.error('Error al obtener el pronóstico del clima:', error);
+        }
+      } else {
+        console.error('Error: La ciudad seleccionada no se encuentra en la lista de ciudades.');
+      }
+    }
+  }
+  
   isValidForm(){
     if (this.form.controls['name'].invalid){
       this.errorName = true;

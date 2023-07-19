@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using TripManager.Domain;
 using TripManager.Domain.Models;
 using TripManager.Infrastructure.Dtos;
+using TripManager.Infrastructure.Dtos.City;
+using TripManager.Infrastructure.Dtos.Vehicle;
 using TripManager.Infrastructure.OperationResponse;
 
 namespace TripManager.Infrastructure.Services
@@ -54,6 +56,7 @@ namespace TripManager.Infrastructure.Services
                 { 
                     Country = request.Country,
                     Name = request.Name,
+                    Active= true,
                 };
 
                 await _contextSql .Cities.AddAsync(newCity);
@@ -87,6 +90,7 @@ namespace TripManager.Infrastructure.Services
             var list = (await _contextSql
                 .Cities
                 .AsNoTracking()
+                .Where(c => c.Active)
                 .ToListAsync()
                 .ConfigureAwait(false))
                 .Select(c => new DtoGetCity()
@@ -108,8 +112,41 @@ namespace TripManager.Infrastructure.Services
             }
 
             city.Active = false;
+            await _contextSql.SaveChangesAsync();
 
             return new OperationResponse<bool>(true);
+        }
+        public async Task<OperationResponse<DtoResponsePagination<DtoGetCity>>> ListCities(DtoFilterCity filter)
+        {
+            var query = _contextSql
+                .Cities
+                .AsNoTracking()
+                .Where(p =>
+                (p.Name.ToLower().Contains(filter.Name ?? "")) &&
+                (p.Country.ToLower().Contains(filter.Country ?? "")) && p.Active == true);
+
+            var count = await query.CountAsync().ConfigureAwait(false);
+
+            var list = (await query.OrderBy(p => p.Country)
+                .Skip(filter.Page * filter.PageSize)
+                .Take(filter.PageSize)
+                .AsNoTracking()
+                .ToListAsync()
+                .ConfigureAwait(false))
+                .Select(c => new DtoGetCity()
+                {
+                    Id = c.Id,
+                    Name= c.Name,
+                    Country = c.Country,
+
+                });
+
+            return new OperationResponse<DtoResponsePagination<DtoGetCity>>(new DtoResponsePagination<DtoGetCity>()
+            {
+                Data = list,
+                TotalCount = count,
+                PageSize = filter.PageSize,
+            });
         }
     }
 }

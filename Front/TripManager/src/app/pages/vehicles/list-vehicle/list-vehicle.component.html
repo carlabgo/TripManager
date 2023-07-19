@@ -15,6 +15,7 @@
           <th>Marca</th>
           <th>Patente</th>
           <th>Tipo de vehiculo</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -22,6 +23,18 @@
           <td>{{ data.brand }}</td>
           <td>{{ data.licensePlate }}</td>
           <td>{{ data.type }}</td>
+          <td> <a (click)="addNewVehicle(data.id)">
+            <span nz-icon nzType="edit" nzTheme="outline"></span
+          ></a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a (click)="showDeleteConfirmation(data)" class="delete">
+            <span
+              nz-icon
+              nzType="delete"
+              nzTheme="outline"
+              nzTooltipTitle="Eliminar"
+            ></span>
+          </a></td>
         </tr>
       </tbody>
     </nz-table>

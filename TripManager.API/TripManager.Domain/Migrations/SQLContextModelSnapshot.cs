@@ -72,10 +72,6 @@ namespace TripManager.Domain.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Description");
 
-                    b.Property<bool>("IsRainy")
-                        .HasColumnType("bit")
-                        .HasColumnName("IsRainy");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")

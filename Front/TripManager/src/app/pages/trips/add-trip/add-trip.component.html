@@ -13,34 +13,38 @@ nzNoColon
 </nz-form-item>
 <nz-form-item>
   <nz-form-label nzFor="description">Descripcion</nz-form-label>
-  <nz-form-control nzErrorTip="Debe ingresar una descripcion">
+  <nz-form-control>
   <input formControlName="description" nz-input>
 </nz-form-control>
+<span *ngIf="errorDescription == true">Debe ingresar una descripcion</span>
 </nz-form-item>
 <nz-form-item>
   <nz-form-label nzFor="tripDate">Fecha del viaje</nz-form-label>
-  <nz-form-control nzErrorTip="Debe seleccionar una fecha">
+  <nz-form-control>
   <nz-date-picker formControlName="tripDate">
   </nz-date-picker>
 </nz-form-control>
+<span *ngIf="errorDate == true">Debe seleccionar una fecha</span>
 </nz-form-item>
 <nz-form-item >
   <nz-form-label nzFor="vehicleId">Vehiculo</nz-form-label>
-  <nz-form-control nzErrorTip="Debe seleccionar un vehiculo">
+  <nz-form-control>
   <nz-select formControlName="vehicleId"  nzPlaceHolder="Seleccione un vehiculo">
   <nz-option *ngFor="let i of vehicles" [nzLabel]="i.type"
     [nzValue]="i.id"></nz-option>
   </nz-select>
   </nz-form-control>
+  <span *ngIf="errorVehicle == true">Debe ingresar un vehiculo</span>
 </nz-form-item>
 <nz-form-item>
 <nz-form-label nzFor="cityId">Destino</nz-form-label>
-<nz-form-control nzErrorTip="Debe seleccionar una ciudad">
+<nz-form-control>
 <nz-select formControlName="cityId"  nzPlaceHolder="Seleccione una ciudad">
   <nz-option *ngFor="let i of cities" [nzLabel]="i.name"
     [nzValue]="i.id"></nz-option>
   </nz-select>
 </nz-form-control>
+<span *ngIf="errorCity == true">Debe seleccionar una ciudad</span>
 </nz-form-item>
 </form>
 <div style="margin-top: 20px;">
