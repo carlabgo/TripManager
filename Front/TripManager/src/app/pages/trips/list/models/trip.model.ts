@@ -13,3 +13,11 @@ export class TripDto {
     city:string;
     tripDate:Date;
 }
+export class TripResponse{
+    id:number;
+    name:string;
+    description:string;
+    vehicleId:number;
+    cityId:number;
+    tripDate:Date;
+}

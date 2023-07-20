@@ -17,3 +17,22 @@ C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Infrastruc
 C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\TripManager.Infrastructure.pdb
 C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\TripManager.Infrastructure.genruntimeconfig.cache
 C:\Users\Admin\Desktop\Challenge Wirsolut\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\ref\TripManager.Infrastructure.dll
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\bin\Debug\net6.0\TripManager.Infrastructure.deps.json
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\bin\Debug\net6.0\TripManager.Infrastructure.runtimeconfig.json
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\bin\Debug\net6.0\TripManager.Infrastructure.dll
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\bin\Debug\net6.0\TripManager.Infrastructure.pdb
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\bin\Debug\net6.0\TripManager.Cross.dll
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\bin\Debug\net6.0\TripManager.Domain.dll
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\bin\Debug\net6.0\TripManager.Domain.pdb
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\bin\Debug\net6.0\TripManager.Cross.pdb
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\TripManager.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\TripManager.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\TripManager.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\TripManager.Infrastructure.AssemblyInfo.cs
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\TripManager.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\TripManager.Infrastructure.csproj.CopyComplete
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\TripManager.Infrastructure.dll
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\refint\TripManager.Infrastructure.dll
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\TripManager.Infrastructure.pdb
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\TripManager.Infrastructure.genruntimeconfig.cache
+C:\Users\kiltex\Documents\TripManager\TripManager\TripManager.API\TripManager.Infrastructure\obj\Debug\net6.0\ref\TripManager.Infrastructure.dll

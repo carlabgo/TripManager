@@ -39,14 +39,14 @@ export class ListCitiesComponent extends BaseComponent implements OnInit {
     this.totalCount = r.totalCount;
     })
   }
-  addNewCity(id?:number){
+  addNewCity(data?:any){
     const drawerRef =
-    this.drawerService.create<AddCitiesComponent, {id:number}>({
+    this.drawerService.create<AddCitiesComponent, {data:any}>({
       nzTitle: "Cargar nueva ciudad",
       nzClosable: true,
       nzContent: AddCitiesComponent,
       nzPlacement:'right',
-      nzContentParams:{id: id},
+      nzContentParams:{data: data},
       nzWidth: '800px',
     })
     drawerRef.afterClose.subscribe((r) => {

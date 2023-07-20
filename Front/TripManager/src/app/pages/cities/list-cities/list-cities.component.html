@@ -21,7 +21,7 @@
         <tr *ngFor="let data of basicTable.data">
           <td>{{ data.name }}</td>
           <td>{{ data.country }}</td>
-          <td> <a (click)="addNewCity(data.id)">
+          <td> <a (click)="addNewCity(data)">
             <span nz-icon nzType="edit" nzTheme="outline"></span
           ></a>
           <nz-divider nzType="vertical"></nz-divider>

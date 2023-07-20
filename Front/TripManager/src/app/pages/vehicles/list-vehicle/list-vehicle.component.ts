@@ -39,14 +39,14 @@ export class ListComponent extends BaseComponent implements OnInit {
     })
   }
 
-  addNewVehicle(id?:number){
+  addNewVehicle(data?:any){
     const drawerRef =
-    this.drawerService.create<AddVehicleComponent, {id:number}>({
+    this.drawerService.create<AddVehicleComponent, {data:any}>({
       nzTitle: "Cargar nuevo vehiculo",
       nzClosable: true,
       nzContent: AddVehicleComponent,
       nzPlacement:'right',
-      nzContentParams:{id: id},
+      nzContentParams:{data: data},
       nzWidth: '800px',
     })
     drawerRef.afterClose.subscribe((r) => {

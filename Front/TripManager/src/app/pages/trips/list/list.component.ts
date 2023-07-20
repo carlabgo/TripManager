@@ -42,14 +42,14 @@ export class ListComponent extends BaseComponent implements OnInit {
     this.totalCount = r.totalCount;
     })
   }
-  addNewTrip(id?:number){
+  addNewTrip(data?:any){
     const drawerRef =
-    this.drawerService.create<AddTripComponent, {id:number}>({
+    this.drawerService.create<AddTripComponent, {data:any}>({
       nzTitle: "Cargar nuevo viaje",
       nzClosable: true,
       nzContent: AddTripComponent,
       nzPlacement:'right',
-      nzContentParams:{id: id},
+      nzContentParams:{data: data},
       nzWidth: '800px',
     })
     drawerRef.afterClose.subscribe((r) => {

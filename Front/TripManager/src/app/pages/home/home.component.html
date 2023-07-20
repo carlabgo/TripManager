@@ -1,8 +1,9 @@
 <nz-layout>
   <nz-header>
-    <div class="logo"></div>
+    <div class="logo">
+      <img src="assets/earth.png" alt="Logo" />
+    </div>
     <ul nz-menu nzTheme="dark" nzMode="horizontal">
-      <li nz-menu-item [routerLink]="['/']">Inicio</li>
       <li nz-menu-item [routerLink]="['/trips/list']">Viajes</li>
       <li nz-menu-item [routerLink]="['/vehicles/list']">Vehiculos</li>
       <li nz-menu-item [routerLink]="['/cities/list']">Ciudades</li>
@@ -11,7 +12,25 @@
   <nz-content>
     <div class="inner-content">
       <router-outlet></router-outlet>
-
+      <!-- <nz-content>
+        <div class="inner-content">
+          <div class="large-icons">
+            <div class="large-icon" (click)="navigateTo('/trips/list')">
+              <i nz-icon nzType="car" nzTheme="outline" nzSize="64"></i>
+              <p>Viajes</p>
+            </div>
+            <div class="large-icon" (click)="navigateTo('/vehicles/list')">
+              <i nz-icon nzType="car" nzTheme="outline" nzSize="64"></i>
+              <p>Vehículos</p>
+            </div>
+            <div class="large-icon" (click)="navigateTo('/cities/list')">
+              <i nz-icon nzType="car" nzTheme="outline" nzSize="64"></i>
+              <p>Ciudades</p>
+            </div>
+          </div>
+        </div>
+      </nz-content> -->
+      
     </div>
   </nz-content>
   <nz-footer>Trip Manager ©2023</nz-footer>

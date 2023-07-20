@@ -7080,19 +7080,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\kiltex\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Challenge Wirsolut\\TripManager.API\\TripManager.API\\TripManager.API.csproj",
+      "projectUniqueName": "C:\\Users\\kiltex\\Documents\\TripManager\\TripManager\\TripManager.API\\TripManager.API\\TripManager.API.csproj",
       "projectName": "TripManager.API",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\Challenge Wirsolut\\TripManager.API\\TripManager.API\\TripManager.API.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\Challenge Wirsolut\\TripManager.API\\TripManager.API\\obj\\",
+      "projectPath": "C:\\Users\\kiltex\\Documents\\TripManager\\TripManager\\TripManager.API\\TripManager.API\\TripManager.API.csproj",
+      "packagesPath": "C:\\Users\\kiltex\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kiltex\\Documents\\TripManager\\TripManager\\TripManager.API\\TripManager.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kiltex\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7106,11 +7106,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Admin\\Desktop\\Challenge Wirsolut\\TripManager.API\\TripManager.Domain\\TripManager.Domain.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\Challenge Wirsolut\\TripManager.API\\TripManager.Domain\\TripManager.Domain.csproj"
+            "C:\\Users\\kiltex\\Documents\\TripManager\\TripManager\\TripManager.API\\TripManager.Domain\\TripManager.Domain.csproj": {
+              "projectPath": "C:\\Users\\kiltex\\Documents\\TripManager\\TripManager\\TripManager.API\\TripManager.Domain\\TripManager.Domain.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\Challenge Wirsolut\\TripManager.API\\TripManager.Infrastructure\\TripManager.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\Challenge Wirsolut\\TripManager.API\\TripManager.Infrastructure\\TripManager.Infrastructure.csproj"
+            "C:\\Users\\kiltex\\Documents\\TripManager\\TripManager\\TripManager.API\\TripManager.Infrastructure\\TripManager.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\kiltex\\Documents\\TripManager\\TripManager\\TripManager.API\\TripManager.Infrastructure\\TripManager.Infrastructure.csproj"
             }
           }
         }
@@ -7171,7 +7171,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

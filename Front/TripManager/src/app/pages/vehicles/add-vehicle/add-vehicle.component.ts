@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VehiclesService } from '../vehicles.service';
 import { NzDrawerRef } from 'ng-zorro-antd/drawer';
 import { Router } from '@angular/router';
-import { VehicleType } from '../../trips/list/models/vehicle.model';
+import { VehicleResponse, VehicleType } from '../../trips/list/models/vehicle.model';
 
 @Component({
   selector: 'app-add-vehicle',
@@ -17,7 +17,7 @@ export class AddVehicleComponent implements OnInit {
   errorType:boolean = false;
   errorLicense:boolean = false;
   isLoading = false;
-  @Input() id:number;
+  @Input() data:VehicleResponse;
   constructor(
     router:Router,
     private fb: FormBuilder,
@@ -27,13 +27,23 @@ export class AddVehicleComponent implements OnInit {
 
   ngOnInit() {
     this.getVehicleTypes();
-    this.form = this.fb.group({
-      id:[this.id],
-      brand:['', [Validators.required]],
-      typeId:[0, [Validators.required]],
-      licensePlate:[null, [Validators.required]]
-  },
-    )}
+  this.createForm();
+    if(this.data){
+      this.form.setValue({
+        id: this.data.id,
+        brand: this.data.brand,
+        licensePlate:this.data.licensePlate,
+        typeId:this.data.type
+      });
+    }}
+    createForm(){
+      this.form = this.fb.group({
+        id:[0],
+        brand:['', [Validators.required]],
+        licensePlate:['', [Validators.required]],
+        typeId:[0, [Validators.required]],
+      });
+    }
     saveVehicle(){
       this.isValidForm();
       if(this.form.valid){

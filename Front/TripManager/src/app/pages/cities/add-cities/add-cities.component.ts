@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CitiesService } from '../cities.service';
 import { NzDrawerRef } from 'ng-zorro-antd/drawer';
+import { CitiesResponse } from '../../trips/list/models/city.model';
 
 @Component({
   selector: 'app-add-cities',
@@ -15,7 +16,7 @@ export class AddCitiesComponent implements OnInit {
   errorName:boolean = false;
   errorCountry:boolean = false;
   isLoading=false;
-  @Input() id:number;
+  @Input() data:CitiesResponse;
   constructor(
     router:Router,
     private fb: FormBuilder,
@@ -24,11 +25,22 @@ export class AddCitiesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.createForm();
+    if(this.data){
+      this.form.setValue({
+        id: this.data.id,
+        name: this.data.name,
+        country:this.data.country
+      });
+    }
+  }
+  
+  createForm(){
     this.form = this.fb.group({
-      id:[0, this.id],
+      id:[0],
       name:['', [Validators.required]],
       country:['', [Validators.required]],
-  },)
+    });
   }
   saveCity(){
     this.isValidForm();

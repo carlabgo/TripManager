@@ -47,6 +47,8 @@ getWeatherForecast(date: string, cityName: string): Promise<any> {
     })
   ).toPromise();
 }
-
+// getWeatherForecast(date: string, cityName: string): Promise<any> {
+//   return Promise.resolve({ date: new Date(date), rainy: true });
+// }
 
 }

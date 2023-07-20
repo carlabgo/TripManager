@@ -6,6 +6,7 @@ import { NzDrawerRef} from 'ng-zorro-antd/drawer'
 import { CityDTO } from '../list/models/city.model';
 import { VehicleDTO } from '../list/models/vehicle.model';
 import { NzModalService } from 'ng-zorro-antd/modal';
+import { TripDto, TripResponse } from '../list/models/trip.model';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class AddTripComponent implements OnInit {
   errorDate:boolean = false;
   selectedCityName: string;
 
-  @Input() id:number;
+  @Input() data:TripDto;
 
   constructor(
     router:Router,
@@ -38,16 +39,27 @@ export class AddTripComponent implements OnInit {
   ngOnInit() {
     this.getVehicles();
     this.getCities();
+  this.createForm();
+    if(this.data){
+      this.form.setValue({
+        id: this.data.id,
+        name: this.data.name,
+        description:this.data.description,
+        cityId: this.data.city,
+        vehicleId: this.data.vehicle,
+        tripDate: this.data.tripDate
+      });
+    }
+  }
+  createForm(){
     this.form = this.fb.group({
-      id:[0,this.id],
+      id:[0],
       name:['', [Validators.required]],
       description:['', [Validators.required]],
       cityId:[null, [Validators.required]],
       vehicleId:[null, [Validators.required]],
       tripDate:['', [Validators.required]] 
-  },
-  ); 
-  
+    });
   }
   close(){
     this.drawerRef.close();

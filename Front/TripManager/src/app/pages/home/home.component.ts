@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NzMessageDataOptions, NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
@@ -6,13 +7,12 @@ import { NzMessageDataOptions, NzMessageService } from 'ng-zorro-antd/message';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-  
-  constructor(
-    
-  ) { }
+export class HomeComponent {
+  constructor(private router: Router) {}
 
-  ngOnInit() {
+  navigateTo(route: string): void {
+    this.router.navigateByUrl(route);
   }
-
 }
+
+
